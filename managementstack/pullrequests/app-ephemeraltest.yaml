@@ -8,7 +8,7 @@
 #   - pullRequest:
 #       github:
 #           # The GitHub organization or user.
-#           owner: a1tan
+#           owner: adamyodinsky
 #           # The Github repository
 #           repo: app-ephemeraltest
 #           # For GitHub Enterprise (optional)
@@ -27,7 +27,7 @@
 #       # namespace: 'myapp-{{branch}}-{{number}}-namespace'
 #     spec:
 #       source:
-#         repoURL: 'https://github.com/a1tan/app-ephemeraltest.git'
+#         repoURL: 'https://github.com/adamyodinsky/app-ephemeraltest.git'
 #         targetRevision: '{{head_sha}}'
 #         path: charts/sampleapp
 #         helm:
