@@ -3,8 +3,6 @@ kind: ApplicationSet
 metadata:
   name: sampleapps-ns
   namespace: argocd
-  finalizers:
-    - resources-finalizer.argocd.argoproj.io
 spec:
   generators:
     - pullRequest:
@@ -22,10 +20,10 @@ spec:
           # Labels is used to filter the PRs that you want to target. (optional)
           # labels:
           # - preview
-        requeueAfterSeconds: 20
+        requeueAfterSeconds: 120
   template:
     metadata:
-      name: "sampleapp-{{branch}}-{{number}}"
+      name: "sampleapp-ns-{{branch}}-{{number}}"
       # namespace: 'myapp-{{branch}}-{{number}}-namespace'
     spec:
       source:
@@ -41,7 +39,7 @@ spec:
       project: default
       destination:
         server: https://kubernetes.default.svc
-        namespace: "sampleapp-{{branch}}-{{number}}"
+        namespace: "sampleapp-ns-{{branch}}-{{number}}-namespace"
       syncPolicy:
         automated:
           allowEmpty: true
