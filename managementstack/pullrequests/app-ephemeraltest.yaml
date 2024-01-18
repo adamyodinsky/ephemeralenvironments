@@ -3,6 +3,8 @@
 # metadata:
 #   name: sampleapps
 #   namespace: argocd
+# finalizers:
+# - resources-finalizer.argocd.argoproj.io
 # spec:
 #   generators:
 #     - pullRequest:
