@@ -5,8 +5,8 @@
 #   namespace: argocd
 # spec:
 #   generators:
-#   - pullRequest:
-#       github:
+#     - pullRequest:
+#         github:
 #           # The GitHub organization or user.
 #           owner: adamyodinsky
 #           # The Github repository
@@ -20,28 +20,28 @@
 #           # Labels is used to filter the PRs that you want to target. (optional)
 #           # labels:
 #           # - preview
-#       requeueAfterSeconds: 120
+#         requeueAfterSeconds: 120
 #   template:
 #     metadata:
-#       name: 'sampleapp-{{branch}}-{{number}}'
+#       name: "sampleapp-{{branch}}-{{number}}"
 #       # namespace: 'myapp-{{branch}}-{{number}}-namespace'
 #     spec:
 #       source:
-#         repoURL: 'https://github.com/adamyodinsky/app-ephemeraltest.git'
-#         targetRevision: '{{head_sha}}'
+#         repoURL: "https://github.com/adamyodinsky/app-ephemeraltest.git"
+#         targetRevision: "{{head_sha}}"
 #         path: charts/sampleapp
 #         helm:
 #           parameters:
-#           - name: "image.tag"
-#             value: "pull-{{head_sha}}"
-#           - name: "environment"
-#             value: "PR-Vcluster-Dev"
+#             - name: "image.tag"
+#               value: "pull-{{head_sha}}"
+#             - name: "environment"
+#               value: "PR-Vcluster-Dev"
 #       project: default
 #       destination:
 #         server: https://cluster-{{branch}}-{{number}}.cluster-{{branch}}-{{number}}-namespace.svc.cluster.local
-#         namespace: 'sampleapp-{{branch}}-{{number}}-namespace'
+#         namespace: "sampleapp-{{branch}}-{{number}}-namespace"
 #       syncPolicy:
-#           automated:
-#               allowEmpty: true
-#               prune: true
-#               selfHeal: true
+#         automated:
+#           allowEmpty: true
+#           prune: true
+#           selfHeal: true
